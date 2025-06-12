@@ -192,7 +192,7 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, index) => (
+                      {(project.technologies || []).map((tech, index) => (
                         <Badge key={index} variant="outline">
                           {tech}
                         </Badge>
