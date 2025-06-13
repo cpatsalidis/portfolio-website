@@ -62,7 +62,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background">
+    <section id="contact" className="py-16 md:py-24 ">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -90,7 +90,7 @@ const ContactSection = () => {
             >
               <Alert
                 variant="default"
-                className="border-green-500 bg-green-50 dark:bg-green-950/30"
+                className="border-green-500 bg-green-50"
               >
                 <CheckCircle className="h-4 w-4 text-green-500" />
                 <AlertTitle>Success!</AlertTitle>
@@ -125,7 +125,8 @@ const ContactSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-card rounded-xl shadow-lg p-6 md:p-8 border border-border"
+            className="rounded-xl shadow-lg p-6 md:p-8 border border-[#a259f7]"
+            style={{ backgroundColor: '#51014E' }}
           >
             <Form {...form}>
               <form
@@ -138,12 +139,12 @@ const ContactSection = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground">Name</FormLabel>
+                        <FormLabel className="text-[white] font-bold">Name</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="Your name"
                             {...field}
-                            className="bg-background/50"
+                            className="bg-white border border-[#a259f7] text-[white] placeholder-[#8a6a8e]"
                           />
                         </FormControl>
                         <FormMessage />
@@ -155,13 +156,13 @@ const ContactSection = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground">Email</FormLabel>
+                        <FormLabel className="text-[white] font-bold">Email</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="your.email@example.com"
                             type="email"
                             {...field}
-                            className="bg-background/50"
+                            className="bg-white border border-[#a259f7] text-[white] placeholder-[#8a6a8e]"
                           />
                         </FormControl>
                         <FormMessage />
@@ -174,11 +175,11 @@ const ContactSection = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground">Message</FormLabel>
+                      <FormLabel className="text-[white] font-bold">Message</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="What would you like to discuss?"
-                          className="min-h-[150px] bg-background/50"
+                          className="min-h-[150px] bg-white border border-[#a259f7] text-[white] placeholder-[#8a6a8e]"
                           {...field}
                         />
                       </FormControl>
@@ -187,27 +188,18 @@ const ContactSection = () => {
                   )}
                 />
                 <div className="flex justify-end">
-                  <Button
+                  <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="relative overflow-hidden group"
+                    className="send-btn flex items-center gap-2 bg-[#921792] text-white font-bold shadow-md hover:bg-[#921792] focus:bg-[#921792] border-none"
                   >
-                    <span className="flex items-center gap-2">
-                      {isSubmitting ? "Sending..." : "Send Message"}
-                      <motion.span
-                        animate={isSubmitting ? { x: [0, 10, 0] } : {}}
-                        transition={{ repeat: Infinity, duration: 1.5 }}
-                      >
-                        <Send className="h-4 w-4" />
-                      </motion.span>
+                    <span className="svg-wrapper flex items-center">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
+                        <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z" fill="currentColor" />
+                      </svg>
                     </span>
-                    <motion.div
-                      className="absolute inset-0 bg-primary-foreground opacity-20"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  </Button>
+                    <span className="leading-none">{isSubmitting ? "Sending..." : "Send Message"}</span>
+                  </button>
                 </div>
               </form>
             </Form>
@@ -224,9 +216,9 @@ const ContactSection = () => {
               Prefer email? Reach me directly at{" "}
               <a
                 href="mailto:nanangprasetya.2000@gmail.com"
-                className="text-primary hover:underline transition-all"
+                className="text-[#a259f7] hover:underline transition-all"
               >
-                nanangprasetya.2000@gmail.com
+                cpatsalidis00@outlook.com
               </a>
             </p>
           </motion.div>

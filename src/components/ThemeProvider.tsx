@@ -28,7 +28,6 @@ export function ThemeProvider({
     if (storedTheme === "light" || storedTheme === "dark") {
       return storedTheme;
     }
-
     // If no stored theme, check system preference
     if (typeof window !== "undefined") {
       const systemPrefersDark = window.matchMedia(
@@ -36,7 +35,6 @@ export function ThemeProvider({
       ).matches;
       return systemPrefersDark ? "dark" : "light";
     }
-
     return defaultTheme;
   });
 
@@ -46,7 +44,6 @@ export function ThemeProvider({
   // Update theme in localStorage when it changes
   useEffect(() => {
     localStorage.setItem(storageKey, theme);
-
     // Apply theme to document
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
@@ -59,13 +56,10 @@ export function ThemeProvider({
     const handleChange = () => {
       setSystemTheme(mediaQuery.matches ? "dark" : "light");
     };
-
     // Set initial value
     handleChange();
-
     // Listen for changes
     mediaQuery.addEventListener("change", handleChange);
-
     return () => {
       mediaQuery.removeEventListener("change", handleChange);
     };
@@ -74,7 +68,6 @@ export function ThemeProvider({
   const toggleTheme = () => {
     setIsTransitioning(true);
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-
     // Reset transition state after animation completes
     setTimeout(() => {
       setIsTransitioning(false);

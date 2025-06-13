@@ -15,9 +15,8 @@ const About = () => {
                     <h1 className="text-4xl md:text-5xl font-bold mb-8">About Me</h1>
                     <div className="prose prose-lg dark:prose-invert max-w-none">
                         <p className="text-muted-foreground mb-6">
-                            I'm a UI/UX Designer and Software Developer with over 2 years of experience
-                            in creating beautiful and functional digital experiences. I specialize in
-                            designing and developing user-centered solutions that solve real problems.
+                            I'm a Software Developer with focus on Frontend Development and UI/UX Design.
+                            My aspirations are to specialise in designing and developing user-centered solutions that solve real problems.
                         </p>
                         <p className="text-muted-foreground mb-6">
                             My journey in tech started with a passion for creating things that people

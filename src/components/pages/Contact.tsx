@@ -34,7 +34,7 @@ const Contact = () => {
                                         href="mailto:nanangprasetya.2000@gmail.com"
                                         className="hover:text-primary transition-colors"
                                     >
-                                        nanangprasetya.2000@gmail.com
+                                        cpatsalidis00@outlook.com
                                     </a>
                                 </p>
                             </div>
@@ -51,7 +51,7 @@ const Contact = () => {
                                         href="tel:+1234567890"
                                         className="hover:text-primary transition-colors"
                                     >
-                                        +1 (234) 567-890
+                                        +44 7756608387
                                     </a>
                                 </p>
                             </div>
@@ -64,7 +64,7 @@ const Contact = () => {
                             <div>
                                 <h3 className="text-lg font-semibold mb-2">Location</h3>
                                 <p className="text-muted-foreground">
-                                    Jakarta, Indonesia
+                                    Nicosia, Cyprus
                                 </p>
                             </div>
                         </div>

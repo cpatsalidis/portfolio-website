@@ -24,7 +24,7 @@ html {
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 300 20% 1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --accent: 210 40% 96.1%;
@@ -41,8 +41,8 @@ html {
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0, 0%, 4%;
+    --foreground: 0, 0%, 100%;
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -56,7 +56,7 @@ html {
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 300 20% 1%;
     --muted-foreground: 215 20.2% 65.1%;
 
     --accent: 217.2 32.6% 17.5%;
@@ -79,4 +79,173 @@ html {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.fancy-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.fancy-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.fancy-btn:hover::before,
+.fancy-btn:focus-visible::before {
+  opacity: 0.18;
+}
+
+.fancy-btn:active::before {
+  opacity: 0.32;
+}
+
+.fancy-btn>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* For outline variant, use a darker overlay */
+.fancy-btn.outline::before {
+  background: linear-gradient(90deg, #232336 0%, #3646f5 100%);
+}
+
+.send-btn {
+  font-family: inherit;
+  font-size: 20px;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.send-btn span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.send-btn svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.send-btn .svg-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.send-btn:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.send-btn:hover svg {
+  transform: translateX(3.5em) scale(1.1);
+}
+
+.send-btn:hover span:last-child {
+  transform: translateX(10em);
+}
+
+.send-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+.send-btn-float {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  min-height: 56px;
+  display: flex;
+}
+
+.send-btn-float .send-btn-arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: filter 0.3s;
+  pointer-events: none;
+}
+
+.send-btn-float .send-btn-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(.4, 1.5, .5, 1), opacity 0.3s;
+}
+
+.send-btn-float:hover .send-btn-text {
+  opacity: 0;
+  transform: translate(120%, -50%);
+}
+
+.send-btn-float:hover .send-btn-arrow {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+  /* filter: drop-shadow(0 0 8px #3646f5); */
+}
+
+.fancy-btn:hover,
+.fancy-btn:focus-visible {
+  background: #a259f7 !important;
+  color: #fff !important;
+  border-color: #a259f7 !important;
+}
+
+.fancy-btn:active {
+  background: #7a1fa2 !important;
+  color: #fff !important;
+  border-color: #7a1fa2 !important;
+}
+
+.fancy-btn.outline:hover,
+.fancy-btn.outline:focus-visible {
+  background: #a259f7 !important;
+  color: #fff !important;
+  border-color: #a259f7 !important;
+}
+
+.fancy-btn.outline:active {
+  background: #7a1fa2 !important;
+  color: #fff !important;
+  border-color: #7a1fa2 !important;
+}
+
+/* Section card background for light and dark mode */
+.section-card-bg {
+  background-color: rgba(238, 221, 236, 0.5);
+}
+
+.dark .section-card-bg {
+  background-color: rgba(3, 2, 3, 0.5);
 }

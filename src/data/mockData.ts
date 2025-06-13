@@ -18,7 +18,7 @@ export const projects: Project[] = [
             "/assets/git.svg"
         ],
         buttonLabel: "STUDY CASE",
-        link: "#",
+        link: "/work#project-1",
     },
     {
         id: "2",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
             "/assets/invision.svg"
         ],
         buttonLabel: "STUDY CASE",
-        link: "#",
+        link: "/work#project-2",
     },
     {
         id: "3",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
             "/assets/invision.svg"
         ],
         buttonLabel: "STUDY CASE",
-        link: "#",
+        link: "/work#project-3",
     },
     {
         id: "4",
@@ -72,32 +72,32 @@ export const projects: Project[] = [
 export const tools: Tool[] = [
     {
         name: "Figma",
-        icon: "https://api.dicebear.com/7.x/avataaars/svg?seed=figma",
+        icon: "assets/figma.svg",
         description: "My primary design tool for creating and collaborating on UI/UX designs with team members.",
     },
     {
-        name: "Whimsical",
-        icon: "https://api.dicebear.com/7.x/avataaars/svg?seed=whimsical",
-        description: "A versatile tool for creating wireframes, flowcharts, and mind maps to plan and organize projects.",
+        name: "Docker",
+        icon: "assets/docker.svg",
+        description: "A containerization platform I use to develop, ship, and run applications efficiently across different environments.",
     },
     {
-        name: "Invision",
-        icon: "https://api.dicebear.com/7.x/avataaars/svg?seed=invision",
-        description: "Used for creating interactive prototypes and gathering feedback from stakeholders.",
+        name: "WCAG",
+        icon: "assets/accessibility.svg",
+        description: "An accessibility guidelines extension I use to ensure my web projects meet modern accessibility standards for all users.",
     },
     {
-        name: "Flutter",
-        icon: "https://api.dicebear.com/7.x/avataaars/svg?seed=flutter",
-        description: "My go-to framework for building cross-platform mobile applications with beautiful UI.",
+        name: "Jasmine",
+        icon: "assets/jasmine.svg",
+        description: "A unit testing tool I use to write and run automated tests, ensuring code quality and reliability in my JavaScript projects.",
     },
     {
         name: "VS Code",
-        icon: "https://api.dicebear.com/7.x/avataaars/svg?seed=vscode",
+        icon: "assets/vs.svg",
         description: "My preferred code editor with powerful extensions for efficient development.",
     },
     {
         name: "Git",
-        icon: "https://api.dicebear.com/7.x/avataaars/svg?seed=git",
+        icon: "assets/git.svg",
         description: "Essential version control system for managing code and collaborating with team members.",
     },
 ]; 

@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { Project } from "../types";
+import { motion, useInView } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 interface ProjectsGridProps {
   projects?: Project[];
@@ -20,7 +22,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
     const rotateX = ((y - centerY) / centerY) * 8; // max 8deg
     const rotateY = ((x - centerX) / centerX) * -8;
     card.style.transform = `perspective(900px) scale(1.04) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    card.style.boxShadow = "0 0 32px 0 rgba(54,70,245,0.18), 0 2px 16px 0 rgba(0,0,0,0.10)";
+    card.style.boxShadow = "0 0 32px 0 #430A48, 0 2px 16px 0 rgba(0,0,0,0.10)";
     card.style.transition = "transform 0.2s cubic-bezier(.25,.8,.25,1), box-shadow 0.2s";
   };
   const handleMouseLeave = () => {
@@ -34,7 +36,8 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
   return (
     <div
       ref={cardRef}
-      className="bg-[#0a0a1a] rounded-2xl shadow-lg flex flex-col overflow-hidden border border-[#232336] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_32px_0_rgba(54,70,245,0.18)] hover:ring-2 hover:ring-primary/30 mx-auto w-full h-full"
+      id={`project-${project.id}`}
+      className="bg-[#0a0a1a] rounded-2xl shadow-lg flex flex-col overflow-hidden border border-[#232336] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_32px_0_#430A48] hover:ring-2 hover:ring-[hsl(0,0%,90%)] mx-auto w-full h-full"
       style={{ willChange: "transform" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -79,14 +82,12 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
           ))}
         </div>
         {/* Study Case Button */}
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to={project.link}
           className="mt-2 px-8 py-2 rounded-full bg-[#3646f5] text-white font-bold tracking-wide text-sm shadow hover:bg-[#2233c7] transition-colors"
         >
           {project.buttonLabel}
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -97,11 +98,35 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects = [] }) => {
     return <div className="text-center text-white py-12">No projects to display.</div>;
   }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
+    <div className="flex flex-col gap-8 w-full">
+      {projects.map((project, idx) => (
+        <AnimatedProjectTile key={project.id} align={idx % 2 === 0 ? 'left' : 'right'}>
+          <div className="w-full max-w-xl px-8 py-8 md:px-12 md:py-10">
+            <ProjectCard project={project} />
+          </div>
+        </AnimatedProjectTile>
       ))}
     </div>
+  );
+};
+
+// Animated tile wrapper
+const AnimatedProjectTile: React.FC<{ align: 'left' | 'right'; children: React.ReactNode }> = ({ align, children }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+  return (
+    <motion.div
+      ref={ref}
+      className={`flex w-full ${align === 'left' ? 'justify-start' : 'justify-end'}`}
+      initial={{
+        opacity: 0,
+        x: align === 'left' ? -80 : 80,
+      }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
+      {children}
+    </motion.div>
   );
 };
 

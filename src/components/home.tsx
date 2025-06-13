@@ -16,22 +16,12 @@ import { useInView } from "framer-motion";
 const socialLinks = [
   {
     platform: 'linkedin' as const,
-    url: 'https://linkedin.com/in/your-profile',
+    url: 'https://www.linkedin.com/in/christos-patsalidis/',
     icon: Linkedin
   },
   {
-    platform: 'instagram' as const,
-    url: 'https://instagram.com/your-profile',
-    icon: Instagram
-  },
-  {
-    platform: 'dribbble' as const,
-    url: 'https://dribbble.com/your-profile',
-    icon: Dribbble
-  },
-  {
     platform: 'github' as const,
-    url: 'https://github.com/your-profile',
+    url: 'https://github.com/cpatsalidis',
     icon: Github
   }
 ];
@@ -42,6 +32,44 @@ const loadProjects = async () => {
   await new Promise(resolve => setTimeout(resolve, 1000));
   return projects;
 };
+
+// TechStack component
+const techStack = [
+  { name: 'GitHub', icon: '/assets/github.svg' },
+  { name: 'HTML', icon: '/assets/html.svg' },
+  { name: 'CSS', icon: '/assets/css.svg' },
+  { name: 'Javascript', icon: '/assets/javascript.svg' },
+  { name: 'Typescript', icon: '/assets/ts.svg' },
+  { name: 'Python', icon: '/assets/python.svg' },
+  { name: 'React', icon: '/assets/react.svg' },
+  { name: 'Tailwind', icon: '/assets/tailwind.svg' },
+  { name: 'Bootstrap', icon: '/assets/bootstrap.svg' },
+  { name: 'Node.js', icon: '/assets/nodejs.svg' },
+  { name: 'Express', icon: '/assets/express.svg' },
+  { name: 'MongoDB', icon: '/assets/mongodb.svg' },
+];
+
+function TechStack() {
+  return (
+    <div className="mt-20 w-full flex flex-col items-center py-8">
+      <div className="flex flex-wrap flex-dire justify-center gap-6" style={{ backgroundColor: 'rgb(51, 12, 47)', padding: '50px' }}>
+        {techStack.map((tech) => (
+          <div
+            key={tech.name}
+            className="flex items-center gap-2 px-6 py-2 rounded-full bg-white text-black text-lg font-medium shadow transition-transform duration-200 hover:scale-105 hover:shadow-[0_0_16px_0_#E5E5E5]"
+          >
+            {tech.name === 'Express' ? (
+              <img src={tech.icon} alt={tech.name} className="w-6 h-6 transition-transform duration-200 hover:scale-110" style={{ color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? '#030203' : '#000' }} />
+            ) : (
+              <img src={tech.icon} alt={tech.name} className="w-6 h-6 transition-transform duration-200 hover:scale-110" />
+            )}
+            <span>{tech.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const Home = () => {
   const scrollY = useScrollPosition();
@@ -69,6 +97,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
+      <img src="/assets/purple-line.svg" alt="decorative purple line" className="fixed inset-0 w-full h-full object-cover object-center z-0 pointer-events-none" style={{ filter: 'hue-rotate(70deg) saturate(2)', opacity: 0.2 }} />
       <Navbar />
 
       {/* Decorative Blobs */}
@@ -80,8 +109,8 @@ const Home = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 pt-8 md:pt-32 pb-32 md:pb-56 relative z-10 bg-background md:pl-[60px]">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-24 md:gap-32">
+      <section id="hero" className="flex items-center justify-center min-h-screen w-full px-4 md:px-12 pt-8 md:pt-0 pb-16 md:pb-0 relative z-10">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-24 md:gap-32 w-full max-w-7xl">
           <motion.div
             className="md:w-1/2"
             initial="hidden"
@@ -90,53 +119,51 @@ const Home = () => {
           >
             <div className="flex items-center mb-6">
               <img
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=portfolio"
-                alt="Profile picture of Nanang Prasetya"
-                className="w-20 h-20 rounded-full bg-primary/20 p-1"
+                src="/personal_photo.jpg"
+                alt="Profile picture of Christos Patsalidis"
+                className="w-28 h-28 rounded-full bg-primary/20 p-1"
               />
               <h2 className="ml-4 text-xl font-medium">
-                Hi, I'm Nanang Prasetya
+                Hi, I'm Christos Patsalidis
               </h2>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              UI/UX Designer and <br />
-              Software Development
+              <span className="text-purple-800 dark:text-purple-400 font-extrabold">Software / <br /> Web Developer</span><br />
+              <span className="text-3xl md:text-4xl lg:text-5xl text-foreground dark:text-white">and <br />
+                UI/UX Design</span>
             </h1>
 
             <p className="text-muted-foreground mb-8 max-w-lg">
-              I'm from Indonesia and I have been working (Freelance) as a
-              Software Development especially in the UI/UX Designer and
-              Development for more than 2 year at
+              I'm from Cyprus and I am an Electrical Engineering graduate from
               <a
-                href="https://panemu.com"
+                href="https://www.imperial.ac.uk/"
                 className="underline ml-1 hover:text-primary transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Panemu Indonesia
+                Imperial College London
               </a>{" "}
-              company.
+              , whose passion for digital technology and design led me to pursue a career in software development.
             </p>
 
             <div className="flex flex-wrap gap-4">
               <Button
-                className="rounded-full px-8"
+                className="rounded-full px-8 fancy-btn"
                 onClick={() => window.location.href = '#contact'}
               >
                 SAY HELLO
               </Button>
               <Button
                 variant="outline"
-                className="rounded-full px-6 flex items-center gap-2"
-                onClick={() => window.open('/resume.pdf', '_blank')}
+                className="rounded-full px-6 flex items-center gap-2 fancy-btn text-foreground border-foreground dark:text-white dark:border-white"
+                onClick={() => window.open('/Christos_Patsalidis_CV.pdf', '_blank')}
               >
                 <Download size={18} />
-                Download CV
+                My CV
               </Button>
-            </div>
 
-            <div className="flex gap-4 mt-8">
+
               {socialLinks.map(({ platform, url, icon: Icon }) => (
                 <a
                   key={platform}
@@ -149,6 +176,7 @@ const Home = () => {
                   <Icon size={24} />
                 </a>
               ))}
+
             </div>
           </motion.div>
 
@@ -158,31 +186,25 @@ const Home = () => {
             animate="visible"
             variants={scaleIn}
           >
-            <div className="relative w-full flex justify-center">
-              <div className="absolute -z-10 w-full h-full bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="relative w-full flex justify-center" style={{ overflow: 'visible' }}>
+              <div className="absolute -z-10 w-[600px] h-[500px] bg-[#a259f7]/20 rounded-full blur-3xl pointer-events-none left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></div>
               <img
                 src="/assets/img-fly.png"
                 alt="Origami bird illustration"
-                className="max-w-[90vw] md:max-w-[500px] w-full h-auto object-contain mx-auto rounded-lg"
+                className="max-w-[90vw] md:max-w-[800px] w-full h-auto object-contain mx-auto rounded-lg"
                 loading="lazy"
               />
-              <div className="absolute bottom-4 right-4 text-center">
-                <p className="text-xl font-medium">Turn your ideas</p>
-                <p className="text-xl">
-                  into{" "}
-                  <span className="text-primary font-medium">reality.</span>
-                </p>
-              </div>
             </div>
           </motion.div>
         </div>
       </section>
-      {/* Divider */}
-      <div className="w-full h-8 md:h-16 bg-gradient-to-b from-background to-muted/40" />
+
+      {/* Tech Stack Section */}
+      <TechStack />
 
       {/* Applications and Tools Section */}
-      <section className="py-32 md:py-56 bg-muted/40 relative z-10">
-        <div className="container mx-auto px-4">
+      <section className="py-32 md:py-56 bg-muted/40/80 relative z-10">
+        <div className="section-card-bg container mx-auto max-w-4xl px-8 py-12 md:py-20 rounded-2xl shadow-lg" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
           <motion.h2
             className="text-3xl md:text-4xl font-bold text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -199,10 +221,10 @@ const Home = () => {
               return (
                 <div
                   key={index}
-                  className="bg-background rounded-lg p-6 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_24px_0_rgba(54,70,245,0.25)] hover:ring-2 hover:ring-primary/30"
+                  className="bg-[rgba(43,10,41,0.85)] border border-[#a259f7] rounded-2xl p-8 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_0_#a259f7] hover:border-[#e084e2] flex flex-col"
                 >
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/50 flex items-center justify-center">
                       <img
                         src={tool.icon}
                         alt={`${tool.name} icon`}
@@ -210,52 +232,46 @@ const Home = () => {
                         loading="lazy"
                       />
                     </div>
-                    <h3 className="ml-4 text-xl font-medium">{tool.name}</h3>
+                    <h3 className="ml-4 text-2xl font-extrabold text-[#F4E1F2] mb-2">{tool.name}</h3>
                   </div>
-                  <p className="text-muted-foreground">{tool.description}</p>
+                  <p className="text-base text-[#e5d6e8] font-medium">{tool.description}</p>
                 </div>
               );
             })}
           </div>
         </div>
       </section>
-      {/* Divider */}
-      <div className="w-full h-8 md:h-16 bg-gradient-to-b from-muted/40 to-background" />
 
       {/* Projects Section */}
-      <section className="py-32 md:py-56 relative z-10 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            My Projects
-          </motion.h2>
+      <section className="py-32 md:py-56 relative z-10">
+        <div className="section-card-bg container mx-auto max-w-5xl px-4 py-12 md:py-20 rounded-2xl shadow-lg relative overflow-hidden" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
+          <div className="relative z-10">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              My Projects
+            </motion.h2>
 
-          {projectsLoading ? (
-            <div className="flex justify-center items-center min-h-[400px]">
-              <LoadingSpinner size="lg" />
-            </div>
-          ) : projectsData ? (
-            <ProjectsGrid projects={projectsData} />
-          ) : null}
+            {projectsLoading ? (
+              <div className="flex justify-center items-center min-h-[400px]">
+                <LoadingSpinner size="lg" />
+              </div>
+            ) : projectsData ? (
+              <ProjectsGrid projects={projectsData} />
+            ) : null}
+          </div>
         </div>
       </section>
-      {/* Divider */}
-      <div className="w-full h-8 md:h-16 bg-gradient-to-b from-background to-muted/40" />
 
       {/* Contact Section */}
-      <section className="py-32 md:py-56 bg-muted/40 relative z-10">
-        <ContactSection />
+      <section className="py-32 md:py-56 bg-muted/40/80 relative z-10">
+        <div className="section-card-bg container mx-auto max-w-5xl px-4 py-12 md:py-20 rounded-2xl shadow-lg" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
+          <ContactSection />
+        </div>
       </section>
-      {/* Decorative SVG Wave at the bottom */}
-      <div className="w-full overflow-x-hidden absolute left-0 bottom-0 z-0 pointer-events-none">
-        <svg viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-32 md:h-48">
-          <path fill="#3646f5" fillOpacity="0.08" d="M0,224L60,202.7C120,181,240,139,360,154.7C480,171,600,245,720,261.3C840,277,960,235,1080,197.3C1200,160,1320,128,1380,112L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
-        </svg>
-      </div>
     </div>
   );
 };
