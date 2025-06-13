@@ -1,139 +1,128 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "./ui/button";
+import { useTheme } from "./ThemeProvider";
 
-interface NavbarProps {
-  theme?: "light" | "dark";
-  toggleTheme?: () => void;
-}
+const navLinks = [
+  { to: "/about", label: "About" },
+  { to: "/work", label: "Work" },
+  { to: "/contact", label: "Contact" },
+];
 
-const Navbar = ({ theme = "dark", toggleTheme = () => {} }: NavbarProps) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
+  // Prevent scrolling when mobile menu is open
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  }, [isMobileMenuOpen]);
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "py-2 bg-background/80 backdrop-blur-md shadow-sm" : "py-4 bg-transparent"}`}
-    >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-primary/20 flex items-center justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=200&q=80"
-              alt="Logo"
-              className="w-6 h-6 object-cover"
-            />
-          </div>
-          <span className="ml-2 text-xl font-bold">BISCUIT</span>
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:fixed md:flex md:flex-col md:justify-between md:items-center md:w-24 md:h-full md:top-0 md:left-0 md:bg-[#0a0a1a] md:py-8 md:z-50 border-r border-[#232336]">
+        {/* Logo/Brand */}
+        <Link to="/" className="flex flex-col items-center mb-8">
+          <span className="text-4xl">🍪</span>
+          <span className="text-xs font-bold tracking-widest text-white mt-2">BISCUIT</span>
         </Link>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link
-            to="/about"
-            className="text-foreground/80 hover:text-foreground transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            to="/work"
-            className="text-foreground/80 hover:text-foreground transition-colors"
-          >
-            Work
-          </Link>
-          <Link
-            to="/contact"
-            className="text-foreground/80 hover:text-foreground transition-colors"
-          >
-            Contact
-          </Link>
+        {/* Nav Links */}
+        <nav className="flex flex-col items-center gap-8 flex-1 justify-center">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`text-white text-sm font-medium transition-colors px-2 py-1 rounded-md ${location.pathname === link.to ? "bg-[#232336] text-primary" : "hover:bg-[#18182a]"
+                }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
+        {/* Theme Toggle */}
+        <motion.button
+          onClick={toggleTheme}
+          className="p-2 rounded-full bg-transparent text-2xl mt-8"
+          whileTap={{ scale: 0.9 }}
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+          {theme === "dark" ? "🙂" : "🌙"}
+        </motion.button>
+      </aside>
 
-        {/* Theme Toggle and Mobile Menu Button */}
-        <div className="flex items-center space-x-4">
+      {/* Mobile Top Bar */}
+      <header className="md:hidden fixed top-0 left-0 w-full z-50 bg-[#0a0a1a] flex items-center justify-between px-4 py-3 border-b border-[#232336]">
+        <div className="flex items-center">
+          <span className="text-3xl">🍪</span>
+          <span className="ml-2 text-base font-bold tracking-widest text-white">BISCUIT</span>
+        </div>
+        <div className="flex items-center gap-2">
           <motion.button
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
+            className="p-2 rounded-full bg-transparent text-2xl"
             whileTap={{ scale: 0.9 }}
-            whileHover={{ rotate: 15 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
-            {theme === "dark" ? (
-              <Sun className="w-5 h-5 text-yellow-400" />
-            ) : (
-              <Moon className="w-5 h-5 text-blue-600" />
-            )}
+            {theme === "dark" ? "🙂" : "🌙"}
           </motion.button>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={toggleMobileMenu}
+          <button
+            className="ml-2 p-2 rounded-full bg-muted/10"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Open menu"
           >
-            {isMobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </Button>
+            {isMobileMenuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
+          </button>
         </div>
-      </div>
-
-      {/* Mobile Menu */}
+      </header>
+      {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            className="md:hidden absolute top-full left-0 w-full bg-background shadow-lg"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+          <motion.aside
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed top-0 left-0 w-64 h-full bg-[#0a0a1a] z-50 flex flex-col py-8 border-r border-[#232336] md:hidden"
           >
-            <div className="flex flex-col items-center py-6 space-y-6">
-              <Link
-                to="/about"
-                className="text-foreground/80 hover:text-foreground transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                to="/work"
-                className="text-foreground/80 hover:text-foreground transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Work
-              </Link>
-              <Link
-                to="/contact"
-                className="text-foreground/80 hover:text-foreground transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
+            <div className="flex flex-col items-center mb-8">
+              <span className="text-4xl">🍪</span>
+              <span className="text-xs font-bold tracking-widest text-white mt-2">BISCUIT</span>
             </div>
-          </motion.div>
+            <nav className="flex flex-col items-center gap-8 flex-1 justify-center">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`text-white text-base font-medium transition-colors px-2 py-1 rounded-md ${location.pathname === link.to ? "bg-[#232336] text-primary" : "hover:bg-[#18182a]"
+                    }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <motion.button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-transparent text-2xl mt-8 mx-auto"
+              whileTap={{ scale: 0.9 }}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === "dark" ? "🙂" : "🌙"}
+            </motion.button>
+          </motion.aside>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 
