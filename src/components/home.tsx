@@ -119,7 +119,7 @@ const Home = () => {
           >
             <div className="flex items-center mb-6">
               <img
-                src="/personal_photo.jpg"
+                src="assets/personal_photo.jpg"
                 alt="Profile picture of Christos Patsalidis"
                 className="w-28 h-28 rounded-full bg-purple-700 dark:bg-white p-1"
               />

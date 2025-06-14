@@ -1,10 +1,9 @@
 import { Suspense } from "react";
-import { useRoutes, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./components/home";
 import About from "./components/pages/About";
 import Work from "./components/pages/Work";
 import Contact from "./components/pages/Contact";
-import routes from "tempo-routes";
 import { ErrorBoundary } from "./components/error-boundary";
 import { LoadingSpinner } from "./components/ui/loading-spinner";
 
@@ -23,7 +22,6 @@ function App() {
             <Route path="/work" element={<Work />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-          {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
         </div>
       </Suspense>
     </ErrorBoundary>
