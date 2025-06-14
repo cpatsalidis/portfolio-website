@@ -144,7 +144,7 @@ const ContactSection = () => {
                           <Input
                             placeholder="Your name"
                             {...field}
-                            className="bg-white border border-[#a259f7] text-[white] placeholder-[#8a6a8e]"
+                            className="bg-background border border-[#a259f7] text-foreground placeholder:text-muted-foreground"
                           />
                         </FormControl>
                         <FormMessage />
@@ -162,7 +162,7 @@ const ContactSection = () => {
                             placeholder="your.email@example.com"
                             type="email"
                             {...field}
-                            className="bg-white border border-[#a259f7] text-[white] placeholder-[#8a6a8e]"
+                            className="bg-background border border-[#a259f7] text-foreground placeholder:text-muted-foreground"
                           />
                         </FormControl>
                         <FormMessage />
@@ -179,7 +179,7 @@ const ContactSection = () => {
                       <FormControl>
                         <Textarea
                           placeholder="What would you like to discuss?"
-                          className="min-h-[150px] bg-white border border-[#a259f7] text-[white] placeholder-[#8a6a8e]"
+                          className="min-h-[150px] bg-background border border-[#a259f7] text-foreground placeholder:text-muted-foreground"
                           {...field}
                         />
                       </FormControl>

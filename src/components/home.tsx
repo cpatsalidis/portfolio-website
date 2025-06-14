@@ -121,7 +121,7 @@ const Home = () => {
               <img
                 src="/personal_photo.jpg"
                 alt="Profile picture of Christos Patsalidis"
-                className="w-28 h-28 rounded-full bg-primary/20 p-1"
+                className="w-28 h-28 rounded-full bg-purple-700 dark:bg-white p-1"
               />
               <h2 className="ml-4 text-xl font-medium">
                 Hi, I'm Christos Patsalidis
@@ -131,7 +131,7 @@ const Home = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="text-purple-800 dark:text-purple-400 font-extrabold">Software / <br /> Web Developer</span><br />
               <span className="text-3xl md:text-4xl lg:text-5xl text-foreground dark:text-white">and <br />
-                UI/UX Design</span>
+                UI/UX Designer</span>
             </h1>
 
             <p className="text-muted-foreground mb-8 max-w-lg">
@@ -224,7 +224,7 @@ const Home = () => {
                   className="bg-[rgba(43,10,41,0.85)] border border-[#a259f7] rounded-2xl p-8 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-[0_0_16px_0_#a259f7] hover:border-[#e084e2] flex flex-col"
                 >
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 rounded-full bg-white/50 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-white/100 flex items-center justify-center">
                       <img
                         src={tool.icon}
                         alt={`${tool.name} icon`}
