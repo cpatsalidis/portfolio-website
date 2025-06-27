@@ -18,7 +18,7 @@ export const projects: Project[] = [
             "/assets/git.svg"
         ],
         buttonLabel: "STUDY CASE",
-        link: "/work#project-1",
+        link: "/projects/tuku-ternak",
     },
     {
         id: "2",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
             "/assets/invision.svg"
         ],
         buttonLabel: "STUDY CASE",
-        link: "/work#project-2",
+        link: "/projects/event-id",
     },
     {
         id: "3",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
             "/assets/invision.svg"
         ],
         buttonLabel: "STUDY CASE",
-        link: "/work#project-3",
+        link: "/projects/medica",
     },
     {
         id: "4",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
             "/assets/aws.svg"
         ],
         buttonLabel: "STUDY CASE",
-        link: "https://fly.example.com",
+        link: "/projects/fly",
     },
 ];
 
