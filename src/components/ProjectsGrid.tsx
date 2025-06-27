@@ -51,7 +51,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
         />
         {/* Category Badge */}
         <div className="absolute top-4 left-4 z-10">
-          <span className="inline-block px-4 py-1 rounded-full bg-[#18182a] text-xs font-semibold text-white shadow">
+          <span className="inline-block px-6 py-2 rounded-full bg-purple-900 text-xs font-semibold text-purple-100 shadow">
             {project.category}
           </span>
         </div>
@@ -84,7 +84,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
         {/* Study Case Button */}
         <Link
           to={project.link}
-          className="mt-2 px-8 py-2 rounded-full bg-[#3646f5] text-white font-bold tracking-wide text-sm shadow hover:bg-[#2233c7] transition-colors"
+          className="mt-2 px-8 py-2 rounded-full bg-purple-500 text-white font-bold tracking-wide text-sm shadow hover:bg-purple-400 transition-colors"
         >
           {project.buttonLabel}
         </Link>

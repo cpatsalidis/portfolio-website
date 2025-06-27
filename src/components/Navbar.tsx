@@ -11,10 +11,10 @@ const navLinks = [
 ];
 
 const projectLinks = [
-  { to: "/projects/tuku-ternak", label: "Tuku Ternak" },
-  { to: "/projects/event-id", label: "Event Id" },
-  { to: "/projects/medica", label: "Medica" },
-  { to: "/projects/fly", label: "Fly" },
+  { to: "/projects/tuku-ternak", label: "CampGround Site" },
+  { to: "/projects/event-id", label: "Agentic Community" },
+  { to: "/projects/medica", label: "Graph API" },
+  { to: "/projects/fly", label: "Portfolio Site" },
 ];
 
 const Navbar = () => {

@@ -3,68 +3,68 @@ import { Project, Tool } from '../types';
 export const projects: Project[] = [
     {
         id: "1",
-        title: "Tuku Ternak",
+        title: "CampGround Site",
         description:
-            "Tuku Ternak is an application that is engaged in animal husbandry e-commerce (selling various livestock products) that applies business concepts and empowerment of breeders and MSMEs.",
+            "The CampGround website is a fullstack web-application that aims to provide a platform for users to find, review and list campsites. A centralised hub for available campsites near your desired location.",
         image: "/assets/tuku ternak 1.jpg",
         logo: "/assets/tuku-ternak.png",
-        category: "Ticketing",
+        category: "Personal Project",
         techIcons: [
             "/assets/figma.svg",
-            "/assets/whimsical.svg",
-            "/assets/invision.svg",
-            "/assets/flutter.svg",
-            "/assets/firebase.svg",
+            "/assets/express.svg",
+            "/assets/nodejs.svg",
+            "/assets/mongodb.svg",
+            "/assets/bootstrap.svg",
             "/assets/git.svg"
         ],
-        buttonLabel: "STUDY CASE",
+        buttonLabel: "More details..",
         link: "/projects/tuku-ternak",
     },
     {
         id: "2",
-        title: "Event Id",
+        title: "Agentic AI Community",
         description:
-            "Event Id is a Ticketing Management Service (TMS) superior technology in supporting all event organizers from distribution & ticket management, to providing event analysis reports at the end of the event.",
+            "This was part of my Master Thesis, where I modelled and implemented an community of agents that could collaborate with eachother to achieve a certain goal. This was centered around Machine Learning and the ways in which information can be shaped and revealed in optimal ways to a controlled collective of agents.",
         image: "/assets/event-id.png",
         logo: "/assets/event_logo_color.png",
-        category: "Ticketing",
+        category: "Machine Learning",
         techIcons: [
             "/assets/figma.svg",
             "/assets/whimsical.svg",
             "/assets/invision.svg"
         ],
-        buttonLabel: "STUDY CASE",
+        buttonLabel: "More details..",
         link: "/projects/event-id",
     },
     {
         id: "3",
-        title: "Medica",
+        title: "Graph API",
         description:
-            "Medica is the Web Design for Commercial and Residential Room Disinfection, Decontamination Services Eliminating 99.999% of bacteria, viruses, spores using international standard products.",
+            "This was a collaborative feature development project, with a team of 3 other junior developers. The project had us developing a core feature that allowed users to easily and seamlesly display their health data (Heart rate, sleep, etc) in a graph format of their choosing, amongst other capabilities. This included migration to IOS and Android mobile apps.",
         image: "/assets/medica-logo-1.png",
         logo: "/assets/medica-logo.png",
-        category: "Health",
+        category: "Data Visualisation",
         techIcons: [
             "/assets/figma.svg",
             "/assets/whimsical.svg",
             "/assets/invision.svg"
         ],
-        buttonLabel: "STUDY CASE",
+        buttonLabel: "More details..",
         link: "/projects/medica",
     },
     {
         id: "4",
-        title: "Fly",
-        description: "A travel booking platform for flights and accommodations.",
+        title: "My very own Portfolio",
+        description: "This portfolio has been built from scratch, to not only showcase some of my projects, but also my skills and abilities as a developer. This was a way of venturing deeper into design best preactises/patterns and UI/UX design, and to also provide an insight to my professional and lean style of web development.",
         image: "/assets/img-fly.png",
         logo: "/assets/logo-bsc.png",
-        category: "Travel",
+        category: "Personal Project",
         techIcons: [
             "/assets/react.svg",
             "/assets/graphql.svg",
             "/assets/aws.svg"
         ],
-        buttonLabel: "STUDY CASE",
+        buttonLabel: "More details..",
         link: "/projects/fly",
     },
 ];
