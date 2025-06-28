@@ -4,9 +4,21 @@ import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar";
 import { Button } from "../../ui/button";
+import Carousel from "../../ui/carousel";
 
 const CampGround = () => {
     const navigate = useNavigate();
+
+    // Campground images for the carousel
+    const campgroundImages = [
+        "/campground/home_page.png",
+        "/campground/campgrounds.png",
+        "/campground/newCamp.png",
+        "/campground/detailsPageNotloggedin.png",
+        "/campground/editPage.png",
+        "/campground/login.png",
+        "/campground/register.png"
+    ];
 
     return (
         <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
@@ -64,12 +76,12 @@ const CampGround = () => {
                             </div>
                         </div>
 
-                        {/* Project Image */}
+                        {/* Project Carousel */}
                         <div className="mb-8">
-                            <img
-                                src="/assets/tuku ternak 1.jpg"
-                                alt="CampGround Project"
-                                className="w-full h-64 rounded-lg shadow-lg"
+                            <Carousel
+                                images={campgroundImages}
+                                altText="CampGround Project Screenshot"
+                                className="h-[500px]"
                             />
                         </div>
 
