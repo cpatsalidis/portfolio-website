@@ -17,13 +17,6 @@ const About = () => {
                     transition={{ duration: 0.6 }}
                     className="w-full max-w-4xl mx-auto px-4 py-12 md:py-20 bg-purple-100/90 dark:bg-black/90 rounded-lg shadow-lg flex flex-col items-center relative"
                 >
-                    <a
-                        href="/"
-                        className="absolute top-6 left-6 px-4 py-2 rounded-full bg-purple-400 text-white font-semibold shadow hover:bg-purple-500 transition-colors dark:bg-purple-500/90 dark:text-[white] dark:hover:bg-purple-300 dark:hover:text-black"
-                        style={{ zIndex: 10 }}
-                    >
-                        ← Back to Home
-                    </a>
                     <h1 className="text-3xl md:text-4xl font-bold mb-8 text-purple-700 dark:text-purple-300 text-center">The Full Story</h1>
                     <div className="px-4 text-[#430A48] dark:text-purple-200 text-lg md:text-xl space-y-8">
                         <p>
