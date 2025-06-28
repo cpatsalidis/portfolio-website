@@ -28,14 +28,8 @@ export function ThemeProvider({
     if (storedTheme === "light" || storedTheme === "dark") {
       return storedTheme;
     }
-    // If no stored theme, check system preference
-    if (typeof window !== "undefined") {
-      const systemPrefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)",
-      ).matches;
-      return systemPrefersDark ? "dark" : "light";
-    }
-    return defaultTheme;
+    // Always default to dark
+    return "dark";
   });
 
   const [systemTheme, setSystemTheme] = useState<Theme | null>(null);
@@ -49,21 +43,6 @@ export function ThemeProvider({
     root.classList.remove("light", "dark");
     root.classList.add(theme);
   }, [theme, storageKey]);
-
-  // Listen for system theme changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = () => {
-      setSystemTheme(mediaQuery.matches ? "dark" : "light");
-    };
-    // Set initial value
-    handleChange();
-    // Listen for changes
-    mediaQuery.addEventListener("change", handleChange);
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, []);
 
   const toggleTheme = () => {
     setIsTransitioning(true);
