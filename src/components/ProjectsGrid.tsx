@@ -60,11 +60,11 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
       {/* Content */}
       <div className="flex flex-col items-center justify-center px-6 pt-0 pb-8 -mt-8 relative z-10">
         {/* Circular Logo */}
-        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg border-4 border-[#0a0a1a] mb-4">
+        <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center shadow-lg border-4 border-[#0a0a1a] mb-4">
           <img
             src={project.logo}
             alt={project.title + ' logo'}
-            className="w-10 h-10 object-contain"
+            className="w-full h-full object-cover rounded-full"
           />
         </div>
         {/* Title */}
@@ -96,7 +96,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
               href="/FYP_report_cp620_01866599_compressed.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-blue-500 transition-colors flex items-center gap-1"
+              className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-purple-500 hover:text-white transition-colors flex items-center gap-1"
             >
               <ExternalLink size={14} />
               View Thesis
@@ -109,7 +109,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
               href="https://github.com/cpatsalidis/camp_app"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-blue-500 transition-colors flex items-center gap-1"
+              className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-purple-500 hover:text-white transition-colors flex items-center gap-1"
             >
               <ExternalLink size={14} />
               View on GitHub

@@ -52,11 +52,14 @@ const CampGround = () => {
                     <div className="section-card-bg rounded-2xl shadow-lg p-6" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
                         {/* Project Header */}
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
-                            <img
-                                src="/assets/tuku-ternak.png"
-                                alt="CampGround Logo"
-                                className="w-20 h-20 object-contain"
-                            />
+                            {/* Circular Logo */}
+                            <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center shadow-lg border-4 border-[#0a0a1a] mb-4 overflow-hidden">
+                                <img
+                                    src="/campground/camping_img.jpg"
+                                    alt="CampGround Logo"
+                                    className="w-full h-full object-cover rounded-full"
+                                />
+                            </div>
                             <div>
                                 <h1 className="text-3xl md:text-4xl font-bold mb-3">CampGround Site</h1>
                                 <p className="text-muted-foreground text-base mb-3">

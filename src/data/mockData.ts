@@ -6,8 +6,8 @@ export const projects: Project[] = [
         title: "CampGround Site",
         description:
             "The CampGround website is a fullstack web-application that aims to provide a platform for users to find, review and list campsites. A centralised hub for available campsites near your desired location.",
-        image: "/assets/tuku ternak 1.jpg",
-        logo: "/assets/tuku-ternak.png",
+        image: "/campground/campgrounds.png",
+        logo: "/campground/camping_img.jpg",
         category: "Personal Project",
         techIcons: [
             "/assets/figma.svg",
