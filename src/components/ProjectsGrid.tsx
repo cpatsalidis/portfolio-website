@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Project } from "../types";
 import { motion, useInView } from "framer-motion";
 import { Link } from 'react-router-dom';
+import { ExternalLink } from 'lucide-react';
 
 interface ProjectsGridProps {
   projects?: Project[];
@@ -81,13 +82,40 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
             />
           ))}
         </div>
-        {/* Study Case Button */}
-        <Link
-          to={project.link}
-          className="mt-2 px-8 py-2 rounded-full bg-purple-500 text-white font-bold tracking-wide text-sm shadow hover:bg-purple-400 transition-colors"
-        >
-          {project.buttonLabel}
-        </Link>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-2 items-center">
+          <Link
+            to={project.link}
+            className="px-8 py-2 rounded-full bg-purple-500 text-white font-bold tracking-wide text-sm shadow hover:bg-purple-400 transition-colors"
+          >
+            {project.buttonLabel}
+          </Link>
+          {/* View Thesis button for Agentic AI project */}
+          {project.title === "Agentic AI Community" && (
+            <a
+              href="/FYP_report_cp620_01866599_compressed.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-blue-500 transition-colors flex items-center gap-1"
+            >
+              <ExternalLink size={14} />
+              View Thesis
+            </a>
+          )}
+
+          {/* View Thesis button for Agentic AI project */}
+          {project.title === "CampGround Site" && (
+            <a
+              href="https://github.com/cpatsalidis/camp_app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-blue-500 transition-colors flex items-center gap-1"
+            >
+              <ExternalLink size={14} />
+              View on GitHub
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

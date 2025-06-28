@@ -1,16 +1,23 @@
-import { Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Suspense, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./components/home";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
-import TukuTernak from "./components/pages/projects/TukuTernak";
-import EventId from "./components/pages/projects/EventId";
-import Medica from "./components/pages/projects/Medica";
-import Fly from "./components/pages/projects/Fly";
+import CampGround from "./components/pages/projects/CampGround";
+import AgenticAI from "./components/pages/projects/AgenticAI";
+import GraphAPI from "./components/pages/projects/GraphAPI";
+import Portfolio from "./components/pages/projects/Portfolio";
 import { ErrorBoundary } from "./components/error-boundary";
 import { LoadingSpinner } from "./components/ui/loading-spinner";
 
 function App() {
+  const location = useLocation();
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
     <ErrorBoundary>
       <Suspense fallback={
@@ -23,10 +30,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/projects/tuku-ternak" element={<TukuTernak />} />
-            <Route path="/projects/event-id" element={<EventId />} />
-            <Route path="/projects/medica" element={<Medica />} />
-            <Route path="/projects/fly" element={<Fly />} />
+            <Route path="/projects/campground" element={<CampGround />} />
+            <Route path="/projects/agentic-ai" element={<AgenticAI />} />
+            <Route path="/projects/graph-api" element={<GraphAPI />} />
+            <Route path="/projects/portfolio" element={<Portfolio />} />
           </Routes>
         </div>
       </Suspense>

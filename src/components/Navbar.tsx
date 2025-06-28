@@ -11,10 +11,10 @@ const navLinks = [
 ];
 
 const projectLinks = [
-  { to: "/projects/tuku-ternak", label: "CampGround Site" },
-  { to: "/projects/event-id", label: "Agentic Community" },
-  { to: "/projects/medica", label: "Graph API" },
-  { to: "/projects/fly", label: "Portfolio Site" },
+  { to: "/projects/campground", label: "CampGround Site" },
+  { to: "/projects/agentic-ai", label: "Agentic AI Community" },
+  { to: "/projects/graph-api", label: "Graph API" },
+  { to: "/projects/portfolio", label: "My very own Portfolio" },
 ];
 
 const Navbar = () => {
@@ -120,7 +120,7 @@ const Navbar = () => {
         {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full bg-purple-500 text-2xl"
+          className={`p-2 rounded-full ${theme === 'light' ? 'bg-[#430A48]' : 'bg-purple-100'} text-2xl`}
           aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         >
           {theme === "dark" ? "💡" : "🌙"}
@@ -221,7 +221,7 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-purple-500 text-2xl mx-auto"
+              className={`p-2 rounded-full ${theme === 'light' ? 'bg-[#430A48]' : 'bg-purple-100'} text-2xl mx-auto`}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
               {theme === "dark" ? "💡" : "🌙"}

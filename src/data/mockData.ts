@@ -18,7 +18,7 @@ export const projects: Project[] = [
             "/assets/git.svg"
         ],
         buttonLabel: "More details..",
-        link: "/projects/tuku-ternak",
+        link: "/projects/campground",
     },
     {
         id: "2",
@@ -34,7 +34,7 @@ export const projects: Project[] = [
             "/assets/invision.svg"
         ],
         buttonLabel: "More details..",
-        link: "/projects/event-id",
+        link: "/projects/agentic-ai",
     },
     {
         id: "3",
@@ -50,7 +50,7 @@ export const projects: Project[] = [
             "/assets/invision.svg"
         ],
         buttonLabel: "More details..",
-        link: "/projects/medica",
+        link: "/projects/graph-api",
     },
     {
         id: "4",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
             "/assets/aws.svg"
         ],
         buttonLabel: "More details..",
-        link: "/projects/fly",
+        link: "/projects/portfolio",
     },
 ];
 
