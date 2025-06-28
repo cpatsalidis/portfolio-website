@@ -56,7 +56,7 @@ function TechStack() {
         {techStack.map((tech) => (
           <div
             key={tech.name}
-            className="flex items-center gap-2 px-6 py-2 rounded-full bg-white text-black text-lg font-medium shadow transition-transform duration-200 hover:scale-105 hover:shadow-[0_0_16px_0_#E5E5E5]"
+            className="z-10 flex items-center gap-2 px-6 py-2 rounded-full bg-white text-black text-lg font-medium shadow transition-transform duration-200 hover:scale-105 hover:shadow-[0_0_16px_0_#E5E5E5]"
           >
             {tech.name === 'Express' ? (
               <img src={tech.icon} alt={tech.name} className="w-6 h-6 transition-transform duration-200 hover:scale-110" style={{ color: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? '#030203' : '#000' }} />
@@ -129,9 +129,8 @@ const Home = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="text-purple-800 dark:text-purple-400 font-extrabold">Software / <br /> Web Developer</span><br />
-              <span className="text-3xl md:text-4xl lg:text-5xl text-foreground dark:text-white">and <br />
-                UI/UX Designer</span>
+              <span className="text-purple-800 dark:text-purple-400 font-extrabold">Software
+                <span className="text-3xl md:text-4xl lg:text-5xl text-foreground dark:text-white">/ <br /> Web Developer</span><br /></span>
             </h1>
 
             <p className="text-muted-foreground mb-8 max-w-lg">
@@ -204,7 +203,7 @@ const Home = () => {
 
       {/* Applications and Tools Section */}
       <section className="py-32 md:py-56 bg-muted/40/80 relative z-10">
-        <div className="section-card-bg container mx-auto max-w-4xl px-8 py-12 md:py-20 rounded-2xl shadow-lg" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
+        <div className="section-card-bg container mx-auto max-w-4xl px-8 py-12 md:py-20 rounded-2xl shadow-lg" style={{ boxShadow: '0 0 20px 0 #430A48, 0 0 80px 0 #430A48' }}>
           <motion.h2
             className="text-3xl md:text-4xl font-bold text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -244,7 +243,7 @@ const Home = () => {
 
       {/* Projects Section */}
       <section className="py-32 md:py-56 relative z-10">
-        <div className="section-card-bg container mx-auto max-w-5xl px-4 py-12 md:py-20 rounded-2xl shadow-lg relative overflow-hidden" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
+        <div className="section-card-bg container mx-auto max-w-5xl px-4 py-12 md:py-20 rounded-2xl shadow-lg relative overflow-hidden" style={{ boxShadow: '0 0 20px 0 #430A48, 0 0 80px 0 #430A48' }}>
           <div className="relative z-10">
             <motion.h2
               className="text-3xl md:text-4xl font-bold text-center mb-16"

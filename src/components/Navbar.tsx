@@ -14,7 +14,7 @@ const projectLinks = [
   { to: "/projects/campground", label: "CampGround Site" },
   { to: "/projects/agentic-ai", label: "Agentic AI Community" },
   { to: "/projects/graph-api", label: "Graph API" },
-  { to: "/projects/portfolio", label: "My very own Portfolio" },
+  { to: "/projects/portfolio", label: "Portfolio" },
 ];
 
 const Navbar = () => {
@@ -55,7 +55,7 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className={`hidden md:fixed md:flex md:flex-col md:justify-between md:items-center md:w-24 md:h-full md:top-0 md:left-0 md:py-8 md:z-50 border-r border-[#430A48] ${theme === 'light' ? 'md:bg-[#F4E1F2]' : 'md:bg-[#0D020D]'} md:block`}>
+      <aside className={`hidden md:fixed md:flex md:flex-col md:justify-between md:items-center md:w-32 md:h-full md:top-0 md:left-0 md:py-8 md:z-50 border-r border-[#430A48] ${theme === 'light' ? 'md:bg-[#F4E1F2]' : 'md:bg-[#0D020D]'} md:block`}>
         {/* Logo/Brand */}
         <button
           className={`flex flex-col items-center mb-8 ${theme === 'light' ? 'text-[#430A48] font-bold' : 'text-white'}`}
@@ -120,10 +120,10 @@ const Navbar = () => {
         {/* Theme Toggle */}
         <button
           onClick={toggleTheme}
-          className={`p-2 rounded-full ${theme === 'light' ? 'bg-[#430A48]' : 'bg-purple-100'} text-2xl`}
+          className={`p-2 rounded-full ${theme === 'light' ? 'bg-[#430A48]' : 'bg-purple-700'} text-2xl`}
           aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
         >
-          {theme === "dark" ? "💡" : "🌙"}
+          {theme === "dark" ? "🔦" : "🌙"}
         </button>
       </aside>
 
@@ -221,10 +221,10 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full ${theme === 'light' ? 'bg-[#430A48]' : 'bg-purple-100'} text-2xl mx-auto`}
+              className={`p-2 rounded-full ${theme === 'light' ? 'bg-[#430A48]' : 'bg-purple-700'} text-2xl mx-auto`}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
-              {theme === "dark" ? "💡" : "🌙"}
+              {theme === "dark" ? "🔦" : "🌙"}
             </button>
           </motion.aside>
         )}

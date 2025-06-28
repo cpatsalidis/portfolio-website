@@ -38,7 +38,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
     <div
       ref={cardRef}
       id={`project-${project.id}`}
-      className="bg-[#0a0a1a] rounded-2xl shadow-lg flex flex-col overflow-hidden border border-[#232336] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_32px_0_#430A48] hover:ring-2 hover:ring-[hsl(0,0%,90%)] mx-auto w-full h-full"
+      className="p-2 bg-transparent rounded-2xl shadow-lg flex flex-col overflow-hidden border border-[#232336] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_32px_0_#430A48] hover:ring-2 hover:ring-[hsl(0,0%,90%)] mx-auto w-full h-full"
       style={{ willChange: "transform" }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -48,11 +48,11 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-top rounded-[20px]"
         />
         {/* Category Badge */}
         <div className="absolute top-4 left-4 z-10">
-          <span className="inline-block px-6 py-2 rounded-full bg-purple-200 text-xs font-semibold text-purple-900 shadow-lg shadow-purple-900/50">
+          <span className="inline-block px-6 py-2 rounded-full bg-white dark:bg-purple-900 text-xs font-semibold text-purple-900 dark:text-white shadow-lg shadow-purple-900/70 border border-purple-900">
             {project.category}
           </span>
         </div>
@@ -68,9 +68,9 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
           />
         </div>
         {/* Title */}
-        <h3 className="text-2xl font-bold text-white mb-2 text-center">{project.title}</h3>
+        <h3 className="text-2xl font-bold text-black dark:text-white mb-2 text-center">{project.title}</h3>
         {/* Description */}
-        <p className="text-[#b0b0c3] text-center mb-4 text-base">{project.description}</p>
+        <p className="text-black dark:text-[#b0b0c3] text-center mb-4 text-base">{project.description}</p>
         {/* Tech Icons */}
         <div className="flex flex-row items-center justify-center gap-3 mb-6">
           {project.techIcons.map((icon, idx) => (
@@ -103,10 +103,23 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
             </a>
           )}
 
-          {/* View Thesis button for Agentic AI project */}
+          {/* View Thesis button for Campground project */}
           {project.title === "CampGround Site" && (
             <a
               href="https://github.com/cpatsalidis/camp_app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-purple-500 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <ExternalLink size={14} />
+              View on GitHub
+            </a>
+          )}
+
+          {/* View Thesis button for Portfolio project */}
+          {project.title === "My very own Portfolio" && (
+            <a
+              href="https://github.com/cpatsalidis/portfolio-website"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-purple-500 hover:text-white transition-colors flex items-center gap-1"

@@ -4,9 +4,19 @@ import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar";
 import { Button } from "../../ui/button";
+import Carousel from "../../ui/carousel";
 
 const GraphAPI = () => {
     const navigate = useNavigate();
+
+    // Graph API images for the carousel
+    const graphApiImages = [
+        "/graphAPI/leaflet_1.png",
+        "/graphAPI/leaflet_2.png",
+        "/graphAPI/flowchart.png",
+        "/graphAPI/gpt_sdk.png",
+        "/graphAPI/swiftetc.png"
+    ];
 
     return (
         <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
@@ -30,9 +40,9 @@ const GraphAPI = () => {
                     <div className="section-card-bg rounded-2xl shadow-lg p-6" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
                             <img
-                                src="/assets/medica-logo.png"
+                                src="/graphAPI/graph_api_logo.svg"
                                 alt="Graph API Logo"
-                                className="w-20 h-20 object-contain"
+                                className="w-32 h-32 object-contain"
                             />
                             <div>
                                 <h1 className="text-3xl md:text-4xl font-bold mb-3">Graph API</h1>
@@ -53,24 +63,25 @@ const GraphAPI = () => {
                             </div>
                         </div>
                         <div className="mb-8">
-                            <img
-                                src="/assets/medica-logo-1.png"
-                                alt="Graph API Project"
-                                className="w-full rounded-lg shadow-lg"
+                            <Carousel
+                                images={graphApiImages}
+                                altText="Graph API Screenshot"
+                                className="h-96"
                             />
                         </div>
                         <div className="grid md:grid-cols-3 gap-6 mb-8">
                             <div className="md:col-span-2">
                                 <h2 className="text-xl font-semibold mb-4">About the Project</h2>
                                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                                    This was a collaborative feature development project, with a team of 3 other junior developers.
-                                    The project had us developing a core feature that allowed users to easily and seamlessly display
-                                    their health data (Heart rate, sleep, etc) in a graph format of their choosing, amongst other capabilities.
-                                    This included migration to IOS and Android mobile apps.
+                                    People generate an abundance of health data through many different wearable devices.
+                                    All these different devices have their own way of storing and forwarding this data. If someone wanted to access health data from a user, they would have to integrate all the different data sources.
+
+                                    Terra helps by unifying the available data sources into one API, making it more trivial for developers to build health solutions.
                                 </p>
                                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                                    The Graph API provides a comprehensive solution for health data visualization, enabling users
-                                    to track and analyze their health metrics through intuitive and customizable graph interfaces.
+                                    The graphing and visualisation of health data is common practice in the health and fitness industry. It can, however, be a very time and resource consuming project to undertake.
+
+                                    This is why we've built our own Graph API, so that the whole process could be done in the Terra backend and ultimately eliminate any additional complications for the customer. A user can simply request a graph of specific data and have it delivered swiftly to their product.
                                 </p>
                             </div>
                             <div>
@@ -99,30 +110,24 @@ const GraphAPI = () => {
                             <h2 className="text-xl font-semibold mb-4">Technology Stack</h2>
                             <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
                                 {[
-                                    { name: "Figma", icon: "/assets/figma.svg" },
-                                    { name: "Whimsical", icon: "/assets/whimsical.svg" },
-                                    { name: "InVision", icon: "/assets/invision.svg" }
+                                    { name: "HTML", icon: "/assets/html.svg" },
+                                    { name: "JavaScript", icon: "/assets/javascript.svg" },
+                                    { name: "CSS", icon: "/assets/css.svg" },
+                                    { name: "React Native", icon: "/assets/react.svg" },
+                                    { name: "Swift", icon: "/assets/swift.svg" },
+                                    { name: "OpenAI (GPT-3)", icon: "/assets/openai.svg" },
                                 ].map((tech) => (
                                     <div key={tech.name} className="flex flex-col items-center p-3 bg-white rounded-lg hover:bg-purple-200 transition-colors">
                                         <img
                                             src={tech.icon}
                                             alt={tech.name}
                                             className="w-7 h-7 mb-1"
+                                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                         />
                                         <span className="text-xs font-medium text-center text-muted">{tech.name}</span>
                                     </div>
                                 ))}
                             </div>
-                        </div>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <Button className="flex items-center gap-2">
-                                <ExternalLink size={18} />
-                                View Live Demo
-                            </Button>
-                            <Button variant="outline" className="flex items-center gap-2">
-                                <Github size={18} />
-                                View Source Code
-                            </Button>
                         </div>
                     </div>
                 </motion.div>

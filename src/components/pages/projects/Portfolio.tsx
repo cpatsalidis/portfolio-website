@@ -30,9 +30,9 @@ const Portfolio = () => {
                     <div className="section-card-bg rounded-2xl shadow-lg p-6" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
                             <img
-                                src="/assets/logo-bsc.png"
+                                src="/assets/portfolio_logo.svg"
                                 alt="Portfolio Logo"
-                                className="w-20 h-20 object-contain"
+                                className="w-32 h-32 object-contain"
                             />
                             <div>
                                 <h1 className="text-3xl md:text-4xl font-bold mb-3">My very own Portfolio</h1>
@@ -52,11 +52,11 @@ const Portfolio = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mb-8">
+                        <div className="mb-8 flex justify-center">
                             <img
                                 src="/assets/img-fly.png"
                                 alt="Portfolio Project"
-                                className="w-full rounded-lg shadow-lg"
+                                className="w-[500px] h-96 rounded-lg shadow-lg"
                             />
                         </div>
                         <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -100,8 +100,11 @@ const Portfolio = () => {
                             <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
                                 {[
                                     { name: "React", icon: "/assets/react.svg" },
-                                    { name: "GraphQL", icon: "/assets/graphql.svg" },
-                                    { name: "AWS", icon: "/assets/aws.svg" }
+                                    { name: "Typescript", icon: "/assets/ts.svg" },
+                                    { name: "Tailwind", icon: "/assets/tailwind.svg" },
+                                    { name: "Vite", icon: "/assets/vite.svg" },
+                                    { name: "Framer Motion", icon: "/assets/framer-motion.png" },
+                                    { name: "Vercel", icon: "/assets/vercel.svg" },
                                 ].map((tech) => (
                                     <div key={tech.name} className="flex flex-col items-center p-3 bg-white rounded-lg hover:bg-purple-200 transition-colors">
                                         <img
@@ -115,13 +118,11 @@ const Portfolio = () => {
                             </div>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Button className="flex items-center gap-2">
-                                <ExternalLink size={18} />
-                                View Live Demo
-                            </Button>
-                            <Button variant="outline" className="flex items-center gap-2">
-                                <Github size={18} />
-                                View Source Code
+                            <Button variant="outline" className="flex items-center gap-2" asChild>
+                                <a href="https://github.com/cpatsalidis/portfolio-website" target="_blank" rel="noopener noreferrer">
+                                    <Github size={18} />
+                                    View Source Code
+                                </a>
                             </Button>
                         </div>
                     </div>
