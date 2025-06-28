@@ -129,7 +129,7 @@ const AgenticAI = () => {
                         </div>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button className="flex items-center gap-2" asChild>
-                                <a href="/FYP_report_cp620_01866599_compressed.pdf" target="_blank" rel="noopener noreferrer">
+                                <a href="/public/FYP_report_cp620_01866599_compressed.pdf" target="_blank" rel="noopener noreferrer">
                                     <ExternalLink size={18} />
                                     View Thesis
                                 </a>

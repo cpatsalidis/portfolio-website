@@ -93,7 +93,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
           {/* View Thesis button for Agentic AI project */}
           {project.title === "Agentic AI Community" && (
             <a
-              href="/FYP_report_cp620_01866599_compressed.pdf"
+              href="/public/FYP_report_cp620_01866599_compressed.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-full bg-white text-purple-600 font-bold tracking-wide text-xs shadow hover:bg-purple-500 hover:text-white transition-colors flex items-center gap-1"

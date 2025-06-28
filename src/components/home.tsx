@@ -156,10 +156,16 @@ const Home = () => {
               <Button
                 variant="outline"
                 className="rounded-full px-6 flex items-center gap-2 fancy-btn text-foreground border-foreground dark:text-white dark:border-white"
-                onClick={() => window.open('/Christos_Patsalidis_CV.pdf', '_blank')}
+                asChild
               >
-                <Download size={18} />
-                My CV
+                <a
+                  href="/public/Christos_Patsalidis_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Download size={18} />
+                  My CV
+                </a>
               </Button>
 
 
