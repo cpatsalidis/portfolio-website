@@ -25,13 +25,14 @@ export const projects: Project[] = [
         title: "Agentic AI Community",
         description:
             "This was part of my Master Thesis, where I modelled and implemented an community of agents that could collaborate with eachother to achieve a certain goal. This was centered around Machine Learning and the ways in which information can be shaped and revealed in optimal ways to a controlled collective of agents.",
-        image: "/assets/event-id.png",
-        logo: "/assets/event_logo_color.png",
+        image: "/AI/mdp.svg",
+        logo: "/AI/ai_logo.svg",
         category: "Machine Learning",
         techIcons: [
-            "/assets/figma.svg",
-            "/assets/whimsical.svg",
-            "/assets/invision.svg"
+            "/assets/mesa_logo.png",
+            "/assets/jupyter.svg",
+            "/assets/gymnasium.svg",
+            "/assets/python.svg",
         ],
         buttonLabel: "More details..",
         link: "/projects/agentic-ai",

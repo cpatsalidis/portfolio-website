@@ -34,15 +34,6 @@ const CampGround = () => {
             </div>
 
             <main className="container mx-auto px-4 pt-20 pb-12 relative z-10">
-                {/* Back to Home button - positioned outside animation */}
-                <a
-                    href="/"
-                    className="absolute top-6 left-6 px-4 py-2 rounded-full bg-purple-400 text-white font-semibold shadow hover:bg-purple-500 transition-colors dark:bg-white/90 dark:text-[#430A48] dark:hover:bg-white"
-                    style={{ zIndex: 10 }}
-                >
-                    ← Back to Home
-                </a>
-
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}

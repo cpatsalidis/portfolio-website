@@ -4,9 +4,16 @@ import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar";
 import { Button } from "../../ui/button";
+import Carousel from "../../ui/carousel";
 
 const AgenticAI = () => {
     const navigate = useNavigate();
+
+    // AI Community images for the carousel
+    const aiImages = [
+        "/AI/obse.svg",
+        "/AI/patial.svg"
+    ];
 
     return (
         <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
@@ -19,14 +26,7 @@ const AgenticAI = () => {
                 <div className="mx-auto w-[400px] max-w-full h-[400px] bg-[#3646f5]/10 rounded-full blur-2xl absolute bottom-0 left-0 right-0"></div>
             </div>
             <main className="container mx-auto px-4 pt-20 pb-12 relative z-10">
-                {/* Back to Home button - positioned outside animation */}
-                <a
-                    href="/"
-                    className="absolute top-6 left-6 px-4 py-2 rounded-full bg-purple-400 text-white font-semibold shadow hover:bg-purple-500 transition-colors dark:bg-white/90 dark:text-[#430A48] dark:hover:bg-white"
-                    style={{ zIndex: 10 }}
-                >
-                    ← Back to Home
-                </a>
+                {/* Back to Home button removed */}
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -37,9 +37,10 @@ const AgenticAI = () => {
                     <div className="section-card-bg rounded-2xl shadow-lg p-6" style={{ boxShadow: '0 0 40px 0 #430A48, 0 0 80px 0 #430A48' }}>
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">
                             <img
-                                src="/assets/event_logo_color.png"
+                                src="/AI/ai_logo.svg"
                                 alt="Agentic AI Logo"
-                                className="w-20 h-20 object-contain"
+                                className="w-32 h-32 object-contain rounded-full"
+                                style={{ backgroundColor: 'white' }}
                             />
                             <div>
                                 <h1 className="text-3xl md:text-4xl font-bold mb-3">Agentic AI Community</h1>
@@ -59,11 +60,12 @@ const AgenticAI = () => {
                                 </div>
                             </div>
                         </div>
+                        {/* Project Carousel */}
                         <div className="mb-8">
-                            <img
-                                src="/assets/event-id.png"
-                                alt="Agentic AI Project"
-                                className="w-full rounded-lg shadow-lg"
+                            <Carousel
+                                images={aiImages}
+                                altText="Agentic AI Community Screenshot"
+                                className="h-96"
                             />
                         </div>
                         <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -105,17 +107,20 @@ const AgenticAI = () => {
                         </div>
                         <div className="mb-8">
                             <h2 className="text-xl font-semibold mb-4">Technology Stack</h2>
-                            <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+                            <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                                 {[
-                                    { name: "Figma", icon: "/assets/figma.svg" },
-                                    { name: "Whimsical", icon: "/assets/whimsical.svg" },
-                                    { name: "InVision", icon: "/assets/invision.svg" }
+                                    { name: "Scikit-learn", icon: "/assets/python.svg" },
+                                    { name: "Python", icon: "/assets/python.svg" },
+                                    { name: "Jupyter Notebook", icon: "/assets/jupyter.svg" },
+                                    { name: "Mesa", icon: "/assets/mesa_logo.png" },
+                                    { name: "Gymnasium/OpenAI Gym", icon: "/assets/gymnasium.svg" }
                                 ].map((tech) => (
                                     <div key={tech.name} className="flex flex-col items-center p-3 bg-white rounded-lg hover:bg-purple-200 transition-colors">
                                         <img
                                             src={tech.icon}
                                             alt={tech.name}
                                             className="w-7 h-7 mb-1"
+                                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
                                         />
                                         <span className="text-xs font-medium text-center text-muted">{tech.name}</span>
                                     </div>

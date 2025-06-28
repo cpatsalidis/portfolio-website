@@ -52,7 +52,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
         />
         {/* Category Badge */}
         <div className="absolute top-4 left-4 z-10">
-          <span className="inline-block px-6 py-2 rounded-full bg-purple-900 text-xs font-semibold text-purple-100 shadow">
+          <span className="inline-block px-6 py-2 rounded-full bg-purple-200 text-xs font-semibold text-purple-900 shadow-lg shadow-purple-900/50">
             {project.category}
           </span>
         </div>
@@ -78,7 +78,7 @@ const ProjectCard: React.FC<{ project: Project }> = React.memo(({ project }) => 
               key={idx}
               src={icon}
               alt="tech"
-              className="w-7 h-7 rounded-full bg-white p-1 shadow"
+              className="w-9 h-9 rounded-full bg-white p-1 shadow"
             />
           ))}
         </div>
