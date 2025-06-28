@@ -90,7 +90,7 @@ const ContactSection = () => {
             >
               <Alert
                 variant="default"
-                className="border-green-500 bg-green-50"
+                className="border-green-500 bg-green-50 text-green-900 dark:bg-green-900 dark:text-green-100 dark:border-green-400"
               >
                 <CheckCircle className="h-4 w-4 text-green-500" />
                 <AlertTitle>Success!</AlertTitle>
