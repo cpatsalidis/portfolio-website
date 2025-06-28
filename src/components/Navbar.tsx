@@ -127,6 +127,15 @@ const Navbar = () => {
         </button>
       </aside>
 
+      {/* Theme Toggle (Mobile) */}
+      <button
+        onClick={toggleTheme}
+        className="fixed top-4 right-16 z-50 p-2 mr-4 rounded-full bg-[#430A48] text-white md:hidden"
+        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      >
+        {theme === "dark" ? "🔦" : "🌙"}
+      </button>
+
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(true)}
@@ -218,14 +227,7 @@ const Navbar = () => {
               })}
             </nav>
 
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className={`p-2 rounded-full ${theme === 'light' ? 'bg-[#430A48]' : 'bg-purple-700'} text-2xl mx-auto`}
-              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            >
-              {theme === "dark" ? "🔦" : "🌙"}
-            </button>
+
           </motion.aside>
         )}
       </AnimatePresence>
