@@ -159,7 +159,7 @@ const Home = () => {
                 asChild
               >
                 <a
-                  href="/public/Christos_Patsalidis_CV.pdf"
+                  href="/Christos_Patsalidis_CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
